@@ -13,3 +13,7 @@ C:\Users\sispatro\Desktop\poc\myTestApp\myTestApp\obj\Debug\net6.0\refint\myTest
 C:\Users\sispatro\Desktop\poc\myTestApp\myTestApp\obj\Debug\net6.0\myTestApp.pdb
 C:\Users\sispatro\Desktop\poc\myTestApp\myTestApp\obj\Debug\net6.0\myTestApp.genruntimeconfig.cache
 C:\Users\sispatro\Desktop\poc\myTestApp\myTestApp\obj\Debug\net6.0\ref\myTestApp.dll
+C:\Users\sispatro\Desktop\poc\myTestApp\myTestApp\bin\Debug\net6.0\System.CodeDom.dll
+C:\Users\sispatro\Desktop\poc\myTestApp\myTestApp\bin\Debug\net6.0\System.Management.dll
+C:\Users\sispatro\Desktop\poc\myTestApp\myTestApp\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Management.dll
+C:\Users\sispatro\Desktop\poc\myTestApp\myTestApp\obj\Debug\net6.0\myTestApp.csproj.CopyComplete

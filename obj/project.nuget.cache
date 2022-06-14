@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ZYWLoISeGdpHVz6v+50sKm+88ku+3/YB9oFpW5bI2fFI3OaPr5urtWOQijD2QdGvhwFprmnXGlwLfTeYmzMKfw==",
+  "dgSpecHash": "3pjJgDFtmJ6dIL2woHuViTCLCVys1FwzpZuT+SxTz1GG8ccjzqYn56WH42iJDWRsUJ5BLu3H+KCVvJoGuv3xqQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\sispatro\\Desktop\\poc\\myTestApp\\myTestApp\\myTestApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\sispatro\\.nuget\\packages\\system.codedom\\6.0.0\\system.codedom.6.0.0.nupkg.sha512",
+    "C:\\Users\\sispatro\\.nuget\\packages\\system.management\\6.0.0\\system.management.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
