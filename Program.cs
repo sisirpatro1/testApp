@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Diagnostics;
 using System.Management;
+using System.Runtime;
 namespace HighCPUUsage
 {
     public class Worker
@@ -30,31 +31,42 @@ namespace HighCPUUsage
     {
         static readonly int ALLOCATIONS = 1000;
         static readonly int ALLOCATION_SIZE = 1638;
-
+        static List<Thread> threads = new List<Thread>();
+        static List<Worker> workers = new List<Worker>();
+        static Worker? worker;
+        static Thread? thread;
+        static readonly int n = 1500;
         static void Main(string[] args)
         {
+            Console.WriteLine("Starting the Console application.");
             ThreadTest();
         }
         //static int FACTORIAL_OF = 100;
 
         static void ThreadTest()
         {
-            List<Thread> threads = new List<Thread>();
-            List<Worker> workers = new List<Worker>();
-            int n = 1500;// Environment.ProcessorCount;
+            
+            // Environment.ProcessorCount;
 
             for (int i = 0; i < n; i++)
             {
                 Console.WriteLine("Entered into {0} loop out of {2} loops and the memory allocated as {1}", i, ALLOCATION_SIZE, n);
-                Worker worker = new Worker(AllocationTest);
-                Thread thread = new Thread(worker.DoWork);
+                worker = new Worker(AllocationTest);
+                thread = new Thread(worker.DoWork);
                 workers.Add(worker);
-                threads.Add(thread);
+                threads.Add(thread);                
+                //thread.Start();
+                //Thread.Sleep(100);
             }
 
             threads.ForEach(t => t.Start());
 
             Console.WriteLine("Press ENTER key to stop...");
+
+            Thread.Sleep(900);
+            Console.WriteLine("Thread sleep completed");
+            Deallocate();
+            Console.WriteLine("All threads are aborted");
             Console.ReadLine();
 
             workers.ForEach(w => w.RequestStop());
@@ -68,9 +80,27 @@ namespace HighCPUUsage
             // Console.WriteLine(AppDomain.CurrentDomain.FriendlyName);
             object[] objects = new object[ALLOCATIONS];
             //Console.WriteLine("Entered into the allocationTest module.");
+
             for (int i = 0; i < ALLOCATIONS; i++)
             {
                 objects[i] = new byte[ALLOCATION_SIZE];
+            }
+
+        }
+
+        static void Deallocate()
+        {
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine("Workers removed {0}.", i);
+                workers.Remove(worker);
+                threads.Remove(thread);
+                GC.Collect();
+            }
+            Console.WriteLine("Deallocating the memory here.");
+            for (int i = 0; i < ALLOCATIONS; i++)
+            {
+                GC.Collect();
             }
         }
     }
